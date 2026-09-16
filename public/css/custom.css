@@ -1,0 +1,98 @@
+/* Signal Log-style theme override for Ananke */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --paper: #F5F6F8;
+  --paper-raised: #FFFFFF;
+  --ink: #171B24;
+  --ink-soft: #5B6472;
+  --ink-faint: #8A93A3;
+  --line: #DBE0E8;
+  --accent: #1F6E90;
+  --accent-ink: #DCEEF4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #12151C;
+    --paper-raised: #1B1F29;
+    --ink: #E7EAF0;
+    --ink-soft: #9AA3B2;
+    --ink-faint: #6B7383;
+    --line: #2A2F3B;
+    --accent: #7FCBEA;
+    --accent-ink: #16303B;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  font-family: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif !important;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Newsreader", "Georgia", serif !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+}
+
+a {
+  color: var(--accent) !important;
+}
+
+/* Header / site title area */
+header, .site-header, #header {
+  background: var(--paper) !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+
+/* Post cards / list items */
+article, .post, .post-listing {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+
+/* Dates and meta info, mono like the tags in Signal Log */
+time, .post-date, .meta {
+  font-family: "IBM Plex Mono", "SFMono-Regular", monospace !important;
+  font-size: 12.5px;
+  color: var(--ink-faint) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Code blocks */
+pre, code {
+  font-family: "IBM Plex Mono", monospace !important;
+  background: var(--accent-ink) !important;
+  border-radius: 6px;
+}
+
+pre {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  overflow-x: auto;
+}
+
+/* Buttons / nav links styled like the eyebrow tag */
+.nav a, nav a {
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent) !important;
+}
+
+/* Constrain content width like the Signal Log page */
+.wrapper, .container, main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
