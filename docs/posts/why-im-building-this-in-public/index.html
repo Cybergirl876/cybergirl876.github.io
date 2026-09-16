@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Why Im Building This in Public | kkt2w</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I go by kkt2w in competitions, Cybergirl876 on GitHub, and Missy pretty much everywhere else. This is the place where all three of those overlap.
+I&rsquo;ve spent the last 3 years in HelpDesk roles, and it taught me something useful: I like breaking things a lot more than I like watching a dashboard for someone else to break them. Every time I&rsquo;ve built an attack chain for a lab and then flipped over to figure out how to detect it, the part that actually got me leaning forward was the attack half. This blog is me leaning into that, in public, instead of leaving it in a folder of private notes nobody sees.">
+    <meta name="generator" content="Hugo 0.166.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.02a37ad6c4e155c542d276915a0e3f83f5c7c5fec443350f6e60753f1679b7a7.css" integrity="sha256-AqN61sThVcVC0naRWg4/g/XHxf7EQzUPbmB1PxZ5t6c=" crossorigin="anonymous">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://kkt2w.dev/posts/why-im-building-this-in-public/">
+    
+
+    
+    
+    <meta property="og:url" content="https://kkt2w.dev/posts/why-im-building-this-in-public/">
+	<meta property="og:site_name" content="kkt2w">
+	<meta property="og:title" content="Why Im Building This in Public">
+	<meta property="og:description" content="I go by kkt2w in competitions, Cybergirl876 on GitHub, and Missy pretty much everywhere else. This is the place where all three of those overlap.
+I’ve spent the last 3 years in HelpDesk roles, and it taught me something useful: I like breaking things a lot more than I like watching a dashboard for someone else to break them. Every time I’ve built an attack chain for a lab and then flipped over to figure out how to detect it, the part that actually got me leaning forward was the attack half. This blog is me leaning into that, in public, instead of leaving it in a folder of private notes nobody sees.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-09-16T00:01:49-05:00">
+		<meta property="article:modified_time" content="2026-09-16T00:01:49-05:00">
+
+	<meta itemprop="name" content="Why Im Building This in Public">
+	<meta itemprop="description" content="I go by kkt2w in competitions, Cybergirl876 on GitHub, and Missy pretty much everywhere else. This is the place where all three of those overlap.
+I’ve spent the last 3 years in HelpDesk roles, and it taught me something useful: I like breaking things a lot more than I like watching a dashboard for someone else to break them. Every time I’ve built an attack chain for a lab and then flipped over to figure out how to detect it, the part that actually got me leaning forward was the attack half. This blog is me leaning into that, in public, instead of leaving it in a folder of private notes nobody sees.">
+	<meta itemprop="datePublished" content="2026-09-16T00:01:49-05:00">
+	<meta itemprop="dateModified" content="2026-09-16T00:01:49-05:00">
+	<meta itemprop="wordCount" content="514">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Why Im Building This in Public">
+	<meta name="twitter:description" content="I go by kkt2w in competitions, Cybergirl876 on GitHub, and Missy pretty much everywhere else. This is the place where all three of those overlap.
+I’ve spent the last 3 years in HelpDesk roles, and it taught me something useful: I like breaking things a lot more than I like watching a dashboard for someone else to break them. Every time I’ve built an attack chain for a lab and then flipped over to figure out how to detect it, the part that actually got me leaning forward was the attack half. This blog is me leaning into that, in public, instead of leaving it in a folder of private notes nobody sees.">
+
+      
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production is-page is-page page-why-im-building-this-in-public">
+   
+  
+
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        kkt2w
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+
+  <article class="page-why-im-building-this-in-public flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    <a class="link dim" href="https://kkt2w.dev/posts/">Posts</a>
+  </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Why Im Building This in Public</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2026-09-16T00:01:49-05:00">September 16, 2026</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>I go by kkt2w in competitions, Cybergirl876 on GitHub, and Missy pretty much everywhere else. This is the place where all three of those overlap.</p>
+<p>I&rsquo;ve spent the last 3 years in HelpDesk roles, and it taught me something useful: I like breaking things a lot more than I like watching a dashboard for someone else to break them. Every time I&rsquo;ve built an attack chain for a lab and then flipped over to figure out how to detect it, the part that actually got me leaning forward was the attack half. This blog is me leaning into that, in public, instead of leaving it in a folder of private notes nobody sees.</p>
+<p>So here&rsquo;s what&rsquo;s coming.</p>
+<p>**The core of it is a lab series called &ldquo;Attack, Detect, Document.&rdquo;** I run a full attack chain in my homelab which includes Kali, Metasploit, and a Windows target. Then work out what it looks like from the defender&rsquo;s side, and write up both. The offense is the point; the detection write-up is there because knowing exactly what you&rsquo;re being hunted for makes you better at the first half, I like to know what&rsquo;s on both side of the fence, instead of assuming the grass is greener. First one up is Mimikatz credential dumping. Six of these are planned, and they&rsquo;re the flagship of this whole project.</p>
+<p>**Alongside that, I&rsquo;m doing authorized recon as apart of WiCyS&rsquo;s live Vulnerability Disclosure Program.** Real scope, real rules of engagement, real MITRE ATT&amp;CK mapping, reconnaissance against an actual live target, not a CTF sandbox. This is the closest thing I have right now to real offensive work, and I&rsquo;ll post on it when there&rsquo;s a finding worth writing up, not on a schedule.</p>
+<p>**The homelab itself gets its own build-log thread** I got two dead OptiPlexes turned into an actual two-node setup, so I have somewhere to run all of this that isn&rsquo;t a single VM I&rsquo;m terrified of breaking.</p>
+<p>**I&rsquo;m also working through PortSwigger Academy and PentesterLabs**, with TCM Security&rsquo;s PWPA and a first bug bounty submission on Intigriti planned once my capstone wraps.</p>
+<p>**The differentiator, and the one I&rsquo;m most excited about, is my capstone**: framing an AI-assisted attack scenario against OT/water infrastructure. That gets its own deep-dive posts, once it&rsquo;s been completed and submitted. This is the highlight of my educational journey at WGU, so I think it deserves it&rsquo;s own room.</p>
+<p>I am very new to this, I don&rsquo;t have a fixed schedule. New post every two to three weeks, tied to an actual checkpoint such as a finished lab, a passed exam, or a recon milestone.</p>
+<p>I&rsquo;m also the Founding President of the WGU&rsquo;s Girls Who Code College Loop; that side of things will show up here too, just not on any fixed schedule, maybe a one time posts if anything exciting happened in the loop.</p>
+<p>If you&rsquo;re reading this because you&rsquo;re hiring for entry level offensive security or red team work; thank you for joining me on my journey into Offensive Security.</p>
+<p>If you found this some other way — welcome. More soon :)</p>
+<ul class="pa0">
+  
+</ul><ul class="pa0">
+  
+</ul>
+
+      
+    </div></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://kkt2w.dev/" >
+    &copy;  kkt2w 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

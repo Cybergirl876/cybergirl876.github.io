@@ -2,3 +2,4 @@ baseURL = 'https://kkt2w.dev/'
 locale = 'en-us'
 title = 'kkt2w'
 theme = 'ananke'
+publishDir = "docs"
