@@ -1,0 +1,249 @@
+/* ============================================================
+   kkt2w.dev — Signal Log theme for Hugo / Ananke
+   Newsreader (headings) · IBM Plex Sans (body) · IBM Plex Mono (meta)
+   Cyan accent · matches the Signal Log editorial-calendar artifact
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap');
+
+/* ── 1. TOKENS ─────────────────────────────────────────────
+   Same variable names as the Signal Log artifact, dark branch.
+   Change values here only — everything below uses variables.
+   ──────────────────────────────────────────────────────── */
+:root {
+  --bg:         #12151C;
+  --bg-raised:  #1B1F29;
+  --bg-code:    #0d1018;
+
+  --border:     #2A2F3B;
+  --border-hi:  #3A4152;
+
+  --ink:        #E7EAF0;
+  --ink-soft:   #9AA3B2;
+  --ink-faint:  #6B7383;
+
+  --accent:     #7FCBEA;
+  --accent-ink: #16303B;
+
+  /* legacy aliases (keeps any old var() references working) */
+  --paper:        var(--bg);
+  --paper-raised: var(--bg-raised);
+  --line:         var(--border);
+  --accent-dim:   var(--accent-ink);
+}
+
+/* ── 2. RESET ───────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+/* ── 3. BASE — overrides Ananke's bg-near-white + avenir ──
+   Body copy is IBM Plex Sans now, not mono — mono is reserved
+   for eyebrows/dates/tags below, same split as the artifact. */
+body.bg-near-white,
+body {
+  background-color: var(--bg) !important;
+  color: var(--ink) !important;
+  font-family: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── 4. HEADINGS — Newsreader serif, not mono ───────────── */
+h1, h2, h3, h4,
+.f1, .f2, .f3 {
+  font-family: "Newsreader", Georgia, serif !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+  letter-spacing: normal;
+  text-wrap: balance;
+}
+
+/* ── 5. LINKS ───────────────────────────────────────────── */
+a, .link {
+  color: var(--accent) !important;
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: underline !important;
+}
+
+/* ── 6. SITE HEADER — Ananke's hero banner ──────────────── */
+header.cover,
+.bg-black-60 {
+  background-color: var(--bg) !important;
+  border-bottom: 1px solid var(--border);
+}
+header.cover h1,
+header.cover a {
+  color: var(--ink) !important;
+}
+header.cover .site-title,
+header.cover .f3 {
+  letter-spacing: normal;
+}
+/* Kicker line above the site title, e.g. "KKT2W.DEV — SIGNAL LOG" */
+header.cover .site-description,
+header.cover .f6 {
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 12px !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent) !important;
+}
+
+/* ── 7. MAIN CONTENT AREA ───────────────────────────────── */
+main.pb7 {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+/* ── 8. POST BODY / DESCRIPTION TEXT ────────────────────── */
+main p,
+.lh-copy {
+  font-family: "IBM Plex Sans", system-ui, sans-serif !important;
+  font-size: 0.92rem !important;
+  color: var(--ink-soft) !important;
+  line-height: 1.75 !important;
+}
+main p strong { color: var(--ink) !important; }
+
+/* ── 9. DATES ───────────────────────────────────────────── */
+time {
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 0.68rem !important;
+  color: var(--ink-faint) !important;
+  letter-spacing: 0.05em;
+}
+
+/* ── 10. "READ MORE" BUTTONS / entry cards ──────────────── */
+main a[href*="/posts/"],
+.f6.grow {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px;
+  padding: 3px 10px;
+  color: var(--ink-soft) !important;
+  background: var(--bg-raised) !important;
+  text-decoration: none !important;
+}
+main a[href*="/posts/"]:hover,
+.f6.grow:hover {
+  color: var(--ink) !important;
+  border-color: var(--accent) !important;
+}
+
+/* Post-list cards, if your Ananke partial wraps each post —
+   rounded 10px cards on a raised surface, matching the artifact's
+   .entry style. Safe to leave in even if unused. */
+.post-card, article.post-list-item {
+  background: var(--bg-raised) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+}
+
+/* ── 11. CODE BLOCKS ────────────────────────────────────── */
+pre, code {
+  font-family: "IBM Plex Mono", monospace !important;
+  background: var(--bg-code) !important;
+  border-radius: 6px;
+}
+pre {
+  padding: 14px 20px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  color: var(--ink-soft) !important;
+  font-size: 0.78rem !important;
+  line-height: 1.75;
+}
+code {
+  font-size: 0.82em !important;
+  padding: 1px 5px;
+  color: var(--ink-soft) !important;
+}
+pre code {
+  background: none !important;
+  padding: 0 !important;
+  font-size: 1em !important;
+}
+
+/* ── 12. FOOTER ─────────────────────────────────────────── */
+footer, .bg-black {
+  background-color: var(--bg) !important;
+  border-top: 1px solid var(--border);
+  color: var(--ink-faint) !important;
+  font-family: "IBM Plex Mono", monospace !important;
+}
+footer a {
+  color: var(--ink-soft) !important;
+}
+footer a:hover {
+  color: var(--ink) !important;
+}
+
+/* ── 13. TAGS / TAXONOMY LABELS ──────────────────────────
+   Rounded pill, mono uppercase, cyan on dark accent-ink — same
+   look as the pillar tags in the artifact (single accent color
+   here since Hugo taxonomy doesn't carry per-category color). */
+.tag,
+a[href*="/tags/"],
+a[href*="/categories/"] {
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 0.62rem !important;
+  color: var(--accent) !important;
+  background: var(--accent-ink) !important;
+  border: none !important;
+  border-radius: 6px;
+  padding: 2px 8px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+}
+a[href*="/tags/"]:hover,
+a[href*="/categories/"]:hover {
+  color: var(--ink) !important;
+  background: var(--border) !important;
+}
+
+/* ── 14. OPTIONAL: terminal card ───────────────────────────
+   Same component you already had — recolored to the accent cyan.
+   Use in post content with raw HTML blocks:
+   <div class="term-card">
+     <div class="term-card-bar">
+       <span class="term-card-name">filename.py — RUNNING</span>
+       <span class="term-card-status">● active</span>
+     </div>
+     <div class="term-card-body"> ... </div>
+   </div>
+   ──────────────────────────────────────────────────────── */
+.term-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.5rem 0;
+}
+.term-card-bar {
+  background: var(--bg-code);
+  border-bottom: 1px solid var(--border);
+  padding: 0.4rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.term-card-name {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.68rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+.term-card-status {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  color: var(--accent);
+}
+.term-card-body {
+  padding: 1rem 1.25rem;
+  font-family: "IBM Plex Mono", monospace;
+}
