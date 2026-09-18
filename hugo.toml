@@ -3,3 +3,7 @@ locale = 'en-us'
 title = 'KKT2W'
 theme = 'ananke'
 publishDir = "docs"
+
+[params]
+  [params.ananke]
+    custom_css = ["css/kkt2w-signal-log-theme.css"]
