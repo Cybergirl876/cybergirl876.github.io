@@ -24,7 +24,7 @@ So here's what's coming.
 
 
 
-**Alongside that, I'm doing authorized recon as apart of WiCyS's live Vulnerability Disclosure Program.** Real scope, real rules of engagement, real MITRE ATT&CK mapping, reconnaissance against an actual live target, not a CTF sandbox. This is the closest thing I have right now to real offensive work, and I'll post on it when there's a finding worth writing up, not on a schedule.
+**Alongside that, I'm doing authorized recon as apart of WiCyS's live Vulnerability Disclosure Program.** Real scope, real rules of engagement, real MITRE ATT\&CK mapping, reconnaissance against an actual live target, not a CTF sandbox. This is the closest thing I have right now to real offensive work, and I'll post on it when there's a finding worth writing up, not on a schedule.
 
 
 
@@ -54,6 +54,5 @@ If you're reading this because you're hiring for entry level offensive security 
 
 
 
-If you found this some other way â€” welcome. More soon :)
-
+If you found this some other way - welcome. More soon :)
 
