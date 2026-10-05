@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Done. Officially. | The Signal Log</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The rabbit hole I didn&rsquo;t see coming: OT
+For my capstone, I looked at how AI could change attacks against operational technology, specifically water infrastructure. [One or two sentences on your approach or main finding, e.g. what you examined, what stood out, or what you&rsquo;d recommend defenders prioritize.]
+The research is what pulled me into OT, and it turned out to be very different from everything I&rsquo;d done before.
+In IT, the usual move is to patch it, reboot it, and isolate it if you have to. In OT, those instincts can be the wrong ones. These systems treat drinking water, run power distribution, and keep manufacturing lines moving. Some of them have been running for decades. A reboot isn&rsquo;t a minor inconvenience; it can mean a physical process stops. Availability doesn&rsquo;t just share the top spot with confidentiality and integrity. It usually wins. Protocols like Modbus and DNP3 were built for reliability, not authentication. And &ldquo;air-gapped&rdquo; often turns out to be more of a hope than a fact.">
+    <meta name="generator" content="Hugo 0.167.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css"><link rel="stylesheet" href="/css/kkt2w-signal-log-theme.css">
+    <script>
+  (function () {
+    "use strict";
+
+    
+    
+    function revealButtons() {
+      var buttons = document.querySelectorAll(".code-block .code-copy[hidden]");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].hidden = false;
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealButtons);
+    } else {
+      revealButtons();
+    }
+
+    function flash(button) {
+      var label = button.querySelector(".code-copy-label");
+      var previous = label ? label.textContent : null;
+      button.classList.add("is-copied");
+      if (label) label.textContent = "Copied";
+      window.setTimeout(function () {
+        button.classList.remove("is-copied");
+        if (label && previous !== null) label.textContent = previous;
+      }, 2000);
+    }
+
+    function legacyCopy(text) {
+      var area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "absolute";
+      area.style.left = "-9999px";
+      document.body.appendChild(area);
+      area.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(area);
+      return ok;
+    }
+
+    function copyFrom(button) {
+      var container = button.closest(".code-block");
+      if (!container) return;
+      var pre = container.querySelector("pre");
+      if (!pre) return;
+      var source = pre.querySelector("code") || pre;
+      var text = source.innerText;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(button); },
+          function () { if (legacyCopy(text)) flash(button); }
+        );
+      } else if (legacyCopy(text)) {
+        flash(button);
+      }
+    }
+
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest(".code-copy");
+      if (button) copyFrom(button);
+    });
+  })();
+</script>
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/graduation/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/graduation/">
+	<meta property="og:site_name" content="The Signal Log">
+	<meta property="og:title" content="Done. Officially.">
+	<meta property="og:description" content="The rabbit hole I didn’t see coming: OT
+For my capstone, I looked at how AI could change attacks against operational technology, specifically water infrastructure. [One or two sentences on your approach or main finding, e.g. what you examined, what stood out, or what you’d recommend defenders prioritize.]
+The research is what pulled me into OT, and it turned out to be very different from everything I’d done before.
+In IT, the usual move is to patch it, reboot it, and isolate it if you have to. In OT, those instincts can be the wrong ones. These systems treat drinking water, run power distribution, and keep manufacturing lines moving. Some of them have been running for decades. A reboot isn’t a minor inconvenience; it can mean a physical process stops. Availability doesn’t just share the top spot with confidentiality and integrity. It usually wins. Protocols like Modbus and DNP3 were built for reliability, not authentication. And “air-gapped” often turns out to be more of a hope than a fact.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-10-05T00:00:00+00:00">
+		<meta property="article:modified_time" content="2026-10-05T00:00:00+00:00">
+
+	<meta itemprop="name" content="Done. Officially.">
+	<meta itemprop="description" content="The rabbit hole I didn’t see coming: OT
+For my capstone, I looked at how AI could change attacks against operational technology, specifically water infrastructure. [One or two sentences on your approach or main finding, e.g. what you examined, what stood out, or what you’d recommend defenders prioritize.]
+The research is what pulled me into OT, and it turned out to be very different from everything I’d done before.
+In IT, the usual move is to patch it, reboot it, and isolate it if you have to. In OT, those instincts can be the wrong ones. These systems treat drinking water, run power distribution, and keep manufacturing lines moving. Some of them have been running for decades. A reboot isn’t a minor inconvenience; it can mean a physical process stops. Availability doesn’t just share the top spot with confidentiality and integrity. It usually wins. Protocols like Modbus and DNP3 were built for reliability, not authentication. And “air-gapped” often turns out to be more of a hope than a fact.">
+	<meta itemprop="datePublished" content="2026-10-05T00:00:00+00:00">
+	<meta itemprop="dateModified" content="2026-10-05T00:00:00+00:00">
+	<meta itemprop="wordCount" content="348">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Done. Officially.">
+	<meta name="twitter:description" content="The rabbit hole I didn’t see coming: OT
+For my capstone, I looked at how AI could change attacks against operational technology, specifically water infrastructure. [One or two sentences on your approach or main finding, e.g. what you examined, what stood out, or what you’d recommend defenders prioritize.]
+The research is what pulled me into OT, and it turned out to be very different from everything I’d done before.
+In IT, the usual move is to patch it, reboot it, and isolate it if you have to. In OT, those instincts can be the wrong ones. These systems treat drinking water, run power distribution, and keep manufacturing lines moving. Some of them have been running for decades. A reboot isn’t a minor inconvenience; it can mean a physical process stops. Availability doesn’t just share the top spot with confidentiality and integrity. It usually wins. Protocols like Modbus and DNP3 were built for reliability, not authentication. And “air-gapped” often turns out to be more of a hope than a fact.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-graduation">
+   
+  
+
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        The Signal Log
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+<main class="pb7" role="main">
+  
+
+  <article class="page-graduation flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    <a class="link dim" href="http://localhost:1313/posts/">Posts</a>
+  </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Done. Officially.</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2026-10-05T00:00:00Z">October 5, 2026</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p><strong>The rabbit hole I didn&rsquo;t see coming: OT</strong></p>
+<p>For my capstone, I looked at how AI could change attacks against operational technology, specifically water infrastructure. [One or two sentences on your approach or main finding, e.g. what you examined, what stood out, or what you&rsquo;d recommend defenders prioritize.]</p>
+<p>The research is what pulled me into OT, and it turned out to be very different from everything I&rsquo;d done before.</p>
+<p>In IT, the usual move is to patch it, reboot it, and isolate it if you have to. In OT, those instincts can be the wrong ones. These systems treat drinking water, run power distribution, and keep manufacturing lines moving. Some of them have been running for decades. A reboot isn&rsquo;t a minor inconvenience; it can mean a physical process stops. Availability doesn&rsquo;t just share the top spot with confidentiality and integrity. It usually wins. Protocols like Modbus and DNP3 were built for reliability, not authentication. And &ldquo;air-gapped&rdquo; often turns out to be more of a hope than a fact.</p>
+<p>Adding AI to that picture is what made the capstone so interesting. [Optional: a sentence on why AI matters here, such as lowering the skill barrier for attackers or speeding up recon on exposed industrial systems.] The defenders in this space are often small utilities with limited security staff, and they&rsquo;re facing attackers whose tools keep getting better.</p>
+<p>That flips a lot of what I thought I knew. As someone heading toward offensive security, I find it fascinating. It raises questions I didn&rsquo;t have before. How do you test systems you can&rsquo;t afford to break? What does responsible research look like when the target controls something physical?</p>
+<p>I don&rsquo;t have all the answers yet, but OT is now firmly on my list of things to keep digging into.</p>
+<p>Since this is critical infrastructure, keep the snippet at the level of themes and takeaways rather than specific techniques or tooling. That reads well to hiring managers anyway.</p>
+<p>Your editorial calendar still lists the capstone as fully off-limits. You may want to update that line so it reflects the after-graduation exception.</p>
+<ul class="pa0">
+  
+</ul><ul class="pa0">
+  
+</ul>
+
+      
+    </div></article>
+</main><footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  The Signal Log 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
