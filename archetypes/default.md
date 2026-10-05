@@ -1,5 +1,10 @@
 +++
-date = '{{ page.date | date: "%B %d, %Y" }}'
+
+date = '{{ .Date }}'
+
 draft = true
+
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
+
 +++
+
