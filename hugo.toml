@@ -1,9 +1,12 @@
 baseURL = 'https://cybergirl876.github.io/'
 locale = 'en-us'
-title = 'The Signal Log'
+title = 'The Violet Terminal 💜💻'
 theme = 'ananke'
 publishDir = "docs"
 
 [params]
+  description = 'Projects, tools, and lessons from a curious cybersecurity mind.'  
+  featured_image = '/images/violet-terminal.png'
+
   [params.ananke]
-    custom_css = ["css/kkt2w-signal-log-theme.css"]
+    custom_css = ["css/violet-terminal.css"]

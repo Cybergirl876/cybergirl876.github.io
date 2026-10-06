@@ -1,0 +1,56 @@
+/* The Violet Terminal — Hugo / Ananke. Edit source, then rebuild with Hugo. */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+:root {
+ --bg:#14101d; --bg-raised:#21182d; --bg-code:#100c17;
+ --border:#3a2a4d; --border-hi:#8462ad;
+ --ink:#f2eaf9; --ink-soft:#c4b8d2; --ink-faint:#a596b8;
+ --accent:#c7a4ff; --accent-ink:#342344;
+ --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body,body.bg-near-white{background:var(--bg)!important;color:var(--ink)!important;font-family:system-ui,-apple-system,'Segoe UI',sans-serif!important;line-height:1.75}
+/* Decorative code stays behind the page and never captures a click. */
+body::before{content:'01010110 01001001 01001111 01001100 01000101 01010100\A\A > initialize curiosity\A\A const journey = learn + build + repeat;\A\A $ python explore.py\A\A while (curious) { keep_learning(); }\A\A 01101100 01100101 01100001 01110010 01101110\A\A > access granted: new possibilities';position:fixed;inset:0;overflow:hidden;pointer-events:none;white-space:pre-wrap;overflow-wrap:anywhere;font:14px/2.8 var(--mono);color:var(--accent);opacity:.045;padding:10vh 4vw;z-index:0}
+body>header,body>main,body>footer{position:relative;z-index:1}
+h1,h2,h3,h4,.f1,.f2,.f3{font-family:var(--mono)!important;color:var(--ink)!important;font-weight:600!important;letter-spacing:-.045em;line-height:1.25;overflow-wrap:anywhere}
+a,.link{color:var(--accent)!important;text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:4px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+/* Ananke's no-image banner is a .bg-black div inside the site header. */
+body>header>div.bg-black,header.cover,.bg-black-60{background:linear-gradient(135deg,#22162f,var(--bg))!important;border-bottom:1px solid var(--border)}
+body>header nav{border-bottom:1px solid #c7a4ff18}
+body>header nav a{font-family:var(--mono)!important}
+body>header .pv4{padding-top:2.4rem!important;padding-bottom:2.6rem!important}
+body>header h1{font-size:clamp(1.9rem,5vw,3.3rem)!important;margin:0 auto!important;max-width:1000px}
+body>header h2{color:var(--ink-soft)!important;font-size:1rem!important;font-weight:400!important;margin-top:1rem}
+main.pb7{max-width:1000px;margin:auto;padding:2.2rem 24px 4rem}
+main .w-70{width:100%!important}main .pa3.pa4-ns{padding:0!important}
+main article.bb{background:linear-gradient(145deg,#241a31f2,#191321f2);border:1px solid var(--border)!important;border-radius:14px;padding:1.6rem 1.8rem;margin:0 0 1.5rem}
+main article.bb h1{font-size:clamp(1.4rem,3vw,2rem)!important;margin:.7rem 0 1rem}
+main article.bb h1 a{color:var(--ink)!important}main article.bb h1 a:hover{color:var(--accent)!important}
+main p,main .lh-copy{color:var(--ink-soft)!important;line-height:1.85!important;font-size:1rem!important}
+main p strong,main li strong{color:var(--ink)!important}
+main li,main blockquote{color:var(--ink-soft)}
+time{font: .78rem/1.5 var(--mono)!important;letter-spacing:.035em;color:var(--ink-faint)!important}
+/* Target only read-more controls; post titles remain full-size text links. */
+a.f6.grow{display:inline-block;border:1px solid var(--border-hi)!important;border-radius:7px;padding:7px 14px;background:var(--accent-ink)!important;color:var(--accent)!important;font: .78rem/1.5 var(--mono)!important;text-decoration:none}
+a.f6.grow:hover{background:#48305e!important;border-color:var(--accent)!important}
+pre,code{font-family:var(--mono)!important;background:var(--bg-code)!important;color:var(--ink)!important;border-radius:6px}
+pre{border:1px solid var(--border);padding:18px;overflow:auto;font-size:.85rem!important;line-height:1.75}
+code{padding:2px 5px;font-size:.9em}pre code{background:none!important;padding:0}
+main blockquote{border-left:3px solid var(--accent);padding-left:1.25rem;margin-left:0}
+main hr{border:0;border-top:1px solid var(--border)}
+main img{max-width:100%;height:auto;border-radius:10px}main table{display:block;max-width:100%;overflow-x:auto}
+main .nested-links a{color:var(--accent)!important}
+main a[href*='/tags/'],main a[href*='/categories/']{background:var(--accent-ink);border:1px solid var(--border);color:var(--accent)!important;border-radius:6px;padding:4px 9px;font:.75rem var(--mono)}
+footer.bg-black{background:var(--bg)!important;border-top:1px solid var(--border);font-family:var(--mono)!important}footer a{color:var(--ink-faint)!important}
+@media(min-width:960px){main article.bb{padding:2rem 2.4rem}}
+@media(max-width:600px){main.pb7{padding:1.5rem 16px 3rem}main article.bb{padding:1.25rem}.ph5-l,.ph3{padding-left:1rem;padding-right:1rem}body>header .pv4{padding-top:1.8rem!important;padding-bottom:2rem!important}body::before{font-size:11px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+/* Match the actual header and read-more classes in this repository. */
+body.is-home>header>div{padding-bottom:1.5rem!important}
+body.is-home>header .tc-l.pv3{padding-top:1.7rem!important;padding-bottom:1.2rem!important}
+main .w-70-ns{width:100%!important}
+main article.bb>.pv4{padding-top:0!important;padding-bottom:0!important}
+a.f7.bg-light-gray{display:inline-block;border:1px solid var(--border-hi)!important;border-radius:7px;padding:7px 14px!important;background:var(--accent-ink)!important;color:var(--accent)!important;font:.78rem/1.5 var(--mono)!important;text-decoration:none}
+a.f7.bg-light-gray:hover{background:#48305e!important;border-color:var(--accent)!important}
