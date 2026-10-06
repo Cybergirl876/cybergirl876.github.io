@@ -20,11 +20,9 @@ publishDir = "docs"
     status_line = 'curiosity.exe is running'
     floating_tag = '{ learn. build. repeat. }'
     mascot_label = 'The mind behind the terminal'
-    mascot_alt = 'Purple-cloaked hijabi character working on a glowing laptop'
+    mascot_alt = 'A Black hijabi woman in a black hoodie and round glasses, coding at her desk in violet light'
     mascots = [
-      { src = '/images/mascot-original.webp', label = 'Original' },
-      { src = '/images/mascot-pixel.webp', label = 'Pixel art' },
-      { src = '/images/mascot-dreamy.webp', label = 'Dreamy' },
+      { src = '/images/mascot.webp', label = 'Original' },
     ]
     journal_eyebrow = 'Field notes from the journey'
     journal_heading = 'Inside the terminal'
