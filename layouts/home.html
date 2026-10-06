@@ -1,0 +1,189 @@
+{{- /*
+  The Violet Terminal: custom homepage.
+  Replaces Ananke's homepage only. Posts, lists and tag pages still use Ananke.
+  Every piece of text lives in hugo.toml under [params.violet].
+*/ -}}
+
+{{ define "header" }}
+{{- $v := site.Params.violet -}}
+<div class="vt-code-bg" aria-hidden="true"><div>01010110 01001001 01001111 01001100 01000101 01010100
+&gt; initialize curiosity
+const journey = learn → build → repeat;
+$ python explore.py
+if (curious) { keep_learning(); }
+01101100 01100101 01100001 01110010 01101110
+&gt; access granted: new possibilities
+$ chmod +x next_chapter.sh
+while learning: create_something()
+01000010 01010101 01001001 01001100 01000100</div></div>
+<header class="vt vt-header">
+  <a class="vt-brand" href="{{ site.Home.RelPermalink }}"><span class="vt-mark" aria-hidden="true">&gt;_</span>{{ $v.brand_name | default site.Title }}<span class="vt-brand-dot">.</span></a>
+  <nav aria-label="Main navigation">
+    <a href="#journal">Journal</a>
+    <a href="#about">About</a>
+    {{ with $v.github }}<a href="{{ . }}" rel="me">GitHub ↗</a>{{ end }}
+  </nav>
+</header>
+{{ end }}
+
+{{ define "main" }}
+{{- $v := site.Params.violet -}}
+{{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- $shown := first ($v.post_count | default 6) $posts -}}
+<div class="vt">
+
+  <section class="vt-hero">
+    <div class="vt-hero-copy">
+      {{ with $v.eyebrow }}<p class="vt-eyebrow"><span></span> {{ . }}</p>{{ end }}
+      <h1>{{ $v.headline | safeHTML }}</h1>
+      <p class="vt-intro">{{ $v.intro | default site.Params.description }}</p>
+      <a class="vt-button" href="#journal">Explore the journal <span aria-hidden="true">↗</span></a>
+      {{ with $v.status_line }}<p class="vt-terminal-line">&gt; {{ . }}<span class="vt-cursor" aria-hidden="true">▍</span></p>{{ end }}
+    </div>
+
+    {{ with $v.mascots }}
+    {{- $first := index . 0 -}}
+    <div class="vt-hero-art">
+      <div class="vt-art-frame">
+        <img id="vt-mascot" src="{{ $first.src | relURL }}" alt="{{ $v.mascot_alt }}" width="900" height="900">
+        {{ with $v.mascot_label }}<span class="vt-art-label">{{ . }}</span>{{ end }}
+      </div>
+      {{ if gt (len .) 1 }}
+      <div class="vt-mascot-switch" aria-label="Choose mascot style" hidden>
+        {{ range $i, $m := . }}
+        <button type="button" data-src="{{ $m.src | relURL }}" aria-pressed="{{ if eq $i 0 }}true{{ else }}false{{ end }}"{{ if eq $i 0 }} class="selected"{{ end }}>{{ $m.label }}</button>
+        {{ end }}
+      </div>
+      {{ end }}
+      {{ with $v.floating_tag }}<span class="vt-floating-code" aria-hidden="true">{{ . }}</span>{{ end }}
+    </div>
+    {{ end }}
+  </section>
+
+  <section id="journal" class="vt-journal">
+    <div class="vt-section-top">
+      <div>
+        {{ with $v.journal_eyebrow }}<p class="vt-eyebrow">{{ . }}</p>{{ end }}
+        <h2>{{ $v.journal_heading | default "Inside the terminal" }}<span>.</span></h2>
+      </div>
+      {{ with site.GetPage (index site.Params.mainSections 0) }}
+      <a class="vt-all-link" href="{{ .RelPermalink }}">{{ len $posts }} {{ cond (eq (len $posts) 1) "note" "notes" }} · see all ↗</a>
+      {{ end }}
+    </div>
+
+    {{- $cats := slice -}}
+    {{- range $shown -}}{{- range .Params.categories -}}{{- $cats = $cats | append . -}}{{- end -}}{{- end -}}
+    {{- $cats = $cats | uniq | sort -}}
+    {{ if $cats }}
+    <div class="vt-filters" aria-label="Filter notes by category" hidden>
+      <button type="button" class="active" data-filter="all" aria-pressed="true">All notes</button>
+      {{ range $cats }}<button type="button" data-filter="{{ . | urlize }}" aria-pressed="false">{{ . }}</button>{{ end }}
+    </div>
+    {{ end }}
+
+    {{ if $shown }}
+    <div class="vt-posts">
+      {{ range $i, $p := $shown }}
+      {{- $num := printf "%03d" (add $i 1) -}}
+      {{- $cat := index ($p.Params.categories | default (slice "Notes")) 0 -}}
+      {{- $slugs := slice -}}{{- range $p.Params.categories -}}{{- $slugs = $slugs | append (. | urlize) -}}{{- end -}}
+      {{- $kicker := upper ($p.Params.kicker | default "note") -}}
+      {{- $style := $p.Params.cover | default (cond $p.Params.featured_image "image" (cond (eq (mod $i 2) 0) "terminal" "code")) -}}
+      <article data-category="{{ delimit $slugs " " }}">
+        <a class="vt-card-link" href="{{ $p.RelPermalink }}">
+          {{ if and (eq $style "image") $p.Params.featured_image }}
+          <div class="vt-cover vt-cover-image">
+            <img src="{{ $p.Params.featured_image | relURL }}" alt="" loading="lazy">
+            <span class="vt-kicker">{{ $kicker }} / {{ $num }}</span>
+          </div>
+          {{ else if eq $style "code" }}
+          <div class="vt-cover vt-cover-code">
+            <span class="vt-kicker">{{ $kicker }} / {{ $num }}</span>
+            <div class="vt-code-snippet">
+              {{- $lines := $p.Params.code_lines | default (slice "<b>for</b> event <b>in</b> logs:" "&nbsp; <b>if</b> event.is_suspicious:" "&nbsp; &nbsp; investigate(event)" "<i># follow your curiosity</i>") -}}
+              {{ range $n, $l := $lines }}<span>{{ printf "%02d" (add $n 1) }}</span> {{ $l | safeHTML }}<br>{{ end }}
+            </div>
+          </div>
+          {{ else }}
+          <div class="vt-cover vt-cover-terminal">
+            <span class="vt-kicker">{{ $kicker }} / {{ $num }}</span>
+            <div class="vt-mini-terminal">
+              <div class="vt-dots">● ● ●</div>
+              {{- $lines := $p.Params.terminal_lines | default (slice (printf "$ cat %s.md" $p.File.ContentBaseName) "● note loaded" "next: follow the evidence") -}}
+              {{ range $n, $l := $lines }}<p{{ if eq $n 1 }} class="vt-success"{{ end }}>{{ $l }}{{ if eq $n (sub (len $lines) 1) }}<span class="vt-cursor">▍</span>{{ end }}</p>{{ end }}
+            </div>
+          </div>
+          {{ end }}
+          <div class="vt-post-body">
+            <p class="vt-post-tag">{{ upper $cat }} <span>· {{ $p.ReadingTime }} MIN READ</span></p>
+            <h3>{{ $p.Title }}</h3>
+            <p class="vt-post-summary">{{ $p.Description | default ($p.Summary | plainify | htmlUnescape | truncate 130) }}</p>
+            <span class="vt-read">Read note <span aria-hidden="true">↗</span></span>
+          </div>
+        </a>
+      </article>
+      {{ end }}
+    </div>
+    {{ else }}
+    <p class="vt-empty">The first notes are on their way.</p>
+    {{ end }}
+  </section>
+
+  <section class="vt-about" id="about">
+    <span class="vt-about-symbol" aria-hidden="true">&gt;_</span>
+    <div>
+      {{ with $v.hello_name }}<p class="vt-eyebrow">HELLO, I'M {{ upper . }}</p>{{ end }}
+      <h2>{{ $v.about_heading | safeHTML }}</h2>
+      <p class="vt-about-text">{{ $v.about_text }}</p>
+    </div>
+    {{ with $v.find_here }}
+    <div class="vt-about-note">// things you'll find here<br><br>{{ range . }}+ {{ . }}<br>{{ end }}</div>
+    {{ end }}
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var mascot = document.getElementById('vt-mascot');
+  var sw = document.querySelector('.vt-mascot-switch');
+  if (mascot && sw) {
+    sw.hidden = false;
+    sw.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        mascot.src = b.dataset.src;
+        sw.querySelectorAll('button').forEach(function (o) {
+          o.classList.toggle('selected', o === b);
+          o.setAttribute('aria-pressed', o === b);
+        });
+      });
+    });
+  }
+  var filters = document.querySelector('.vt-filters');
+  if (filters) {
+    filters.hidden = false;
+    filters.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        filters.querySelectorAll('button').forEach(function (o) {
+          o.classList.toggle('active', o === b);
+          o.setAttribute('aria-pressed', o === b);
+        });
+        document.querySelectorAll('.vt-posts article').forEach(function (a) {
+          var cats = (a.dataset.category || '').split(' ');
+          a.hidden = b.dataset.filter !== 'all' && cats.indexOf(b.dataset.filter) === -1;
+        });
+      });
+    });
+  }
+})();
+</script>
+{{ end }}
+
+{{ define "footer" }}
+{{- $v := site.Params.violet -}}
+<footer class="vt vt-footer">
+  <a class="vt-brand" href="{{ site.Home.RelPermalink }}">&gt;_ {{ $v.brand_name | default site.Title }}</a>
+  <span>{{ $v.footer_line | default "Built with curiosity. Colored in violet." }}</span>
+  {{ with $v.github }}<a href="{{ . }}" rel="me">GitHub ↗</a>{{ end }}
+</footer>
+{{ end }}
