@@ -1,12 +1,36 @@
-baseURL = 'https://cybergirl876.github.io/'
+baseURL = 'https://kkt2w.dev/'
 locale = 'en-us'
 title = 'The Violet Terminal 💜💻'
 theme = 'ananke'
 publishDir = "docs"
 
 [params]
-  description = 'Projects, tools, and lessons from a curious cybersecurity mind.'  
-  featured_image = '/images/violet-terminal.png'
+  description = 'Projects, tools, and lessons from a curious cybersecurity mind.'
 
   [params.ananke]
-    custom_css = ["css/violet-terminal.css"]
+    custom_css = ["css/violet-terminal.css", "css/violet-home.css"]
+
+  # Everything on the homepage. Edit the text here, not in the template.
+  [params.violet]
+    brand_name = 'The Violet Terminal'
+    github = 'https://github.com/Cybergirl876'
+    eyebrow = 'A little curiosity. A lot of possibilities.'
+    headline = 'Learning out loud.<br>Building <em>something<br>of my own.</em>'
+    intro = 'Welcome to my corner of the internet. Projects, tools, and lessons from a curious cybersecurity mind.'
+    status_line = 'curiosity.exe is running'
+    floating_tag = '{ learn. build. repeat. }'
+    mascot_label = 'The mind behind the terminal'
+    mascot_alt = 'Purple-cloaked hijabi character working on a glowing laptop'
+    mascots = [
+      { src = '/images/mascot-original.webp', label = 'Original' },
+      { src = '/images/mascot-pixel.webp', label = 'Pixel art' },
+      { src = '/images/mascot-dreamy.webp', label = 'Dreamy' },
+    ]
+    journal_eyebrow = 'Field notes from the journey'
+    journal_heading = 'Inside the terminal'
+    post_count = 6
+    hello_name = 'Danielle'
+    about_heading = 'Always a student.<br>Always a little curious.'
+    about_text = "This is where I document the things I learn, the projects I build, and the questions that lead me somewhere new. Pull up a terminal. Let's figure it out together."
+    find_here = ['offensive security & home labs', 'tools, scripts & experiments', 'CTFs, certs & little victories']
+    footer_line = 'Built with curiosity. Colored in violet.'
