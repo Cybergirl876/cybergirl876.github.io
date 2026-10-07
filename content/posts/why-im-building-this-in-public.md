@@ -10,7 +10,7 @@ I go by kkt2w in competitions, Cybergirl876 on GitHub, and Missy pretty much eve
 
 
 
-I've spent the last 3 years in Desktop roles, and it taught me something useful: I like breaking things a lot more than I like watching a dashboard for someone else to break them. Every time I've built an attack chain for a lab and then flipped over to figure out how to detect it, the part that actually got me leaning forward was the attack half. This blog is me leaning into that, in public, instead of leaving it in a folder of private notes nobody sees.
+I've spent the last 3 years in Desktop support and IT Technical support roles, and it taught me something useful: I like breaking things a lot more than I like watching a dashboard for someone else to break them. Every time I've built an attack chain for a lab and then flipped over to figure out how to detect it, the part that actually got me leaning forward was the attack half. This blog is me leaning into that, in public, instead of leaving it in a folder of private notes nobody sees.
 
 
 
